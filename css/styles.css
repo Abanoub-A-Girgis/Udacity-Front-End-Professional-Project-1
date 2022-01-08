@@ -10,6 +10,11 @@
 
 
 /* ---- Base Rules ---- */
+
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -44,7 +49,9 @@ p {
     line-height: 1.6em;
     color: #eee;
 }
-
+a:active {
+    color: red;
+  }
 /* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
@@ -62,9 +69,8 @@ section {
 
 .nav-bar-item {
     background-color: #008CBA;
-    border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 12px 30px;
     margin: 5px 25px 5px 25px;
     text-align: center;
     display: inline-block;

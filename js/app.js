@@ -32,6 +32,10 @@ const sectionsParent = document.querySelector('section').parentElement;
  * Start Helper Functions
  * 
 */
+function sectionInViewPort (elem) {
+    let sectionPos = elem.getBoundingClientRect();
+    return (sectionPos.top >= 0);
+}
 
 /**
  * End Helper Functions
@@ -55,13 +59,35 @@ const navBarItems = () => {
     navBarLi.appendChild(fragment);
 }
 
-navBarItems();
+
 
 // Add class 'active' to section when near top of viewport
 
+function toggleActiveClass(){
+    sections.forEach(section =>
+    {
+        if (sectionInViewPort(section)){
+            if (!section.classList.contains('your-active-class')){
+                section.classList.add('your-active-class');
+            }
+        }
+        else {
+            section.classList.remove('your-active-class');
+        }
+    })
+}
 
-// Scroll to anchor ID using scrollTO event
+// Scroll to anchor ID using scrollIntoView event
 
+document.onclick = function (e) {
+    var element = e.target;
+  
+    if (element.tagName == 'A') {
+      var sscroll = document.querySelector(element.hash);
+      sscroll.scrollIntoView();
+      return false; 
+    }
+  };
 
 /**
  * End Main Functions
@@ -71,7 +97,8 @@ navBarItems();
 
 // Build menu 
 
-// Scroll to section on link click
+navBarItems();
 
 // Set sections as active
 
+document.addEventListener('scroll', toggleActiveClass);
