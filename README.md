@@ -8,4 +8,4 @@ The starter code was kindly provided by udacity [here](https://github.com/udacit
 
 The project was to build a multi-section landing page with dynamically updating navigation menu based on the amount of content that is added to the page
 
-THe Project usses CSS Javascriot and HTML
+The Project uses CSS, Javascript and HTML to achieve the effect.
