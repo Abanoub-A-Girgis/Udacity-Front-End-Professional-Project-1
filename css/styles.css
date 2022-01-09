@@ -11,6 +11,7 @@
 
 /* ---- Base Rules ---- */
 
+/* Makes the scrolling behaviour when clicking on links smooth */
 html{
     scroll-behavior: smooth;
 }
@@ -76,9 +77,6 @@ section {
     display: inline-block;
     font-size: 16px;
     border-radius: 25px;
-}
-
-.nav-bar-item > a {
     text-decoration: none;
 }
 
@@ -109,6 +107,8 @@ section {
     color: #fff;
     transition: ease 0.3s all;
 }
+
+/* Uses Flex Box to dynamically arrange the navbar items*/
 #navbar__list{
     display: flex;
     justify-content: center;
