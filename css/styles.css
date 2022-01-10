@@ -111,8 +111,8 @@ section {
 /* Uses Flex Box to dynamically arrange the navbar items*/
 #navbar__list{
     display: flex;
-    justify-content: center;
     background-color: lightblue;
+    overflow: hidden;
 }
 
 
