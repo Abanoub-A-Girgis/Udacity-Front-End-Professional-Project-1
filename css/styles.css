@@ -112,7 +112,13 @@ section {
 #navbar__list{
     display: flex;
     background-color: lightblue;
-    overflow: hidden;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#navbar__list::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 
