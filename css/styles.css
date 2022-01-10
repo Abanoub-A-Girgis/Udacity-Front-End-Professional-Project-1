@@ -113,14 +113,7 @@ section {
     display: flex;
     background-color: lightblue;
     overflow: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 }
-
-#navbar__list::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
-
 
 /* Header Styles */
 .page__header {
@@ -129,6 +122,11 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 /* Footer Styles */
