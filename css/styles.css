@@ -113,6 +113,13 @@ section {
     display: flex;
     background-color: lightblue;
     overflow: scroll;
+    /* Hiding the scrollbar but enabling scrolling on mobile for other browsers*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+/* Hiding the scrollbar but enabling scrolling on mobile for webkit browsers*/
+::-webkit-scrollbar {
+    display: none;
 }
 
 /* Header Styles */
@@ -122,10 +129,6 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 /* Footer Styles */
