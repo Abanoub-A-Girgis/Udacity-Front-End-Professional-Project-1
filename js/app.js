@@ -52,12 +52,11 @@ const navBarItems = () => {
     const fragment = document.createDocumentFragment();
     // Loops over all the sections and creating a link item for each
     sections.forEach(section => {
-        const newListItem = document.createElement('a');
+        const newListItem = document.createElement('li');
         // Adding the class nav-bar-item to the newly created link
         newListItem.classList.add("nav-bar-item");
         // Adding the referenece and text to each item in question
-        newListItem.href = `#${section.id}`
-        newListItem.innerText = section.dataset.nav
+        newListItem.innerHTML = `<a href="#${section.id}">${section.dataset.nav}</a>`;
         // Finally appending the new list item to the document fragment
         fragment.appendChild(newListItem);
     })
@@ -65,38 +64,44 @@ const navBarItems = () => {
     navBarList.appendChild(fragment);
 }
 
-
-
 // Add class 'active' to section when near top of viewport
 // Function that toggle the active class bases on the helper function defined above
 function toggleActiveClass(){
     // Boolean variable that determines where the function stops adding the active class
-    var found = false;
-    sections.forEach(section =>
+    let found = false;
+    let navBarElements = navBarList.querySelectorAll('li');
+    sections.forEach((section, index) =>
     {
         // if the section's top is in the viewport or below and the first active section wasn't found make that the active section
         if (sectionInViewPort(section) && !found){
             section.classList.add('your-active-class');
+            navBarElements[index].classList.add('active')
             // The active section is found and thus we weill remove the active class from the rest of the sections
             found = true;
         }
         // Removing the active class from all other sections
         else {
             section.classList.remove('your-active-class');
+            navBarElements[index].classList.remove('active')
         }
     })
 }
 
 // Scroll to anchor ID using scrollIntoView event
-
 // Function that changes the effect of clicking on a link in the navBarList
 navBarList.onclick = function (e) {
-    var element = e.target;
-    // Checks if the element is a link and uses scrollIntoView to scrolls to the element
-    if (element.tagName == 'A') {
-      var sscroll = document.querySelector(element.hash);
-      sscroll.scrollIntoView();
-      return false; 
+    let element = e.target;
+    // Checks if the element is a list and uses scrollIntoView to scrolls smoothly to the element
+    if (element.tagName == 'LI') {
+        let sscroll = document.querySelector(element.querySelector('a').hash);
+        sscroll.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        return false; 
+    }
+    // Checks if the element is a link and uses scrollIntoView to scrolls smoothly to the element
+    else if(element.tagName == 'A'){
+        let sscroll = document.querySelector(element.hash);
+        sscroll.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        return false; 
     }
   };
 
